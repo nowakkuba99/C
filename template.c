@@ -1,4 +1,8 @@
-// Program description
+/* ⓒ Jakub Nowak 
+Program to 
+Arguments: 
+Return: 
+*/
 
 /*Includes*/
 #include <stdio.h>
@@ -12,3 +16,4 @@ int main()
 
     return 1;
 }
+/*Functions bodies*/
