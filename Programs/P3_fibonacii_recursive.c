@@ -7,9 +7,9 @@ Return: -
 /*Includes*/
 #include <stdio.h>
 /*File includes*/
-int fibonacci(int);
-/*Functions definitions*/
 
+/*Functions definitions*/
+int fibonacci(int);
 /*Main*/
 int main()
 {
