@@ -44,7 +44,7 @@ int main()
 int comp (const void * a, const void * b)
 {
     int _a = *(int*)a;
-    int _b = *(int*)b;
+    int _b = *(int*)b;  
     if(_a < _b) return -1;
     else if(_a == _b) return 0;
     else return 1;
