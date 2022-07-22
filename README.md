@@ -1,2 +1,3 @@
-# C
-C simple programing and some bigger projects
+# C & C++
+C simple programing - Mainly LeetCode
+C++ - Leetcode and bigger projects
