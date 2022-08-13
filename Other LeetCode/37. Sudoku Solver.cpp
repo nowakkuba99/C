@@ -94,7 +94,10 @@ private:
     }
 };
 
-
+/*
+    Solution using for loops to check current board
+    Runs faster on leetcode
+*/
 
 
 
