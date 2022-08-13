@@ -98,7 +98,58 @@ private:
 
 
 
-
+class Solution_with_for_loops {
+public:
+    void solveSudoku(vector<vector<char>>& board) {
+        helper(board,0,0);                                                              //Start solving in left up corner
+    }
+private:
+    bool checkIfValid(vector<vector<char>>& board, char guess, int row, int col)        //Check if given guess can be inserted at row,col
+    {
+        for(int rowIt = 0; rowIt<9; rowIt++)            //Check column
+            if(board[rowIt][col] == guess)
+                return false;
+        for(int colIt = 0; colIt<9; colIt++)            //Check row
+            if(board[row][colIt] == guess)
+                return false;
+        int boxRow = (row/3)*3, boxCol = (col/3)*3;     //Get box start indexies
+        for(int rowIt = 0; rowIt<3; rowIt++)            //Check box
+        {
+            for(int colIt = 0; colIt<3; colIt++)
+            {
+                if(board[boxRow + rowIt][boxCol + colIt] == guess)
+                    return false;
+            }
+        }
+        return true;
+    }
+    bool helper(vector<vector<char>>& board, int rowStart, int colStart)                //Recursive call function
+    {
+        for(int row = rowStart; row<9; row++)                                           //Iterate through rows
+        {
+            for(int col = colStart; col<9; col++)                                       //Itarate through cols
+            {
+                char ch = board[row][col];                                              //Save char to variable
+                if(ch == '.')                                                           //If empty
+                {
+                    for(char guess = '1'; guess <='9'; guess++)                         //Try guessing 1-9
+                    {
+                        if(checkIfValid(board,guess,row,col))                           //Check if guess can be placed on board
+                        {
+                            board[row][col] = guess;                                    //Place guess on board
+                            if(helper(board,row+(col+1)/9,(col+1)%9))                   //If solved then return true
+                                return true;
+                            board[row][col] = '.';                                      //Else remove guess and move on
+                        }
+                    }
+                    return false;                                                       //If all guesses 0-9 not possible return false     
+                }
+            }
+            colStart = 0;                                                               //If all columns passed, zero colStart
+        }
+        return true;
+    }
+};
 
 
 
